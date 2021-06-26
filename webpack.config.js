@@ -5,13 +5,14 @@ const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js'
+    path: path.resolve(__dirname, "dist"),
+    filename: "main.js",
+    assetModuleFilename: "assets/images/[hash][ext][query]",
   },
   resolve: {
-    extensions: ['.js']
+    extensions: [".js"],
   },
 
   module: {
@@ -19,37 +20,51 @@ module.exports = {
       {
         test: /\.m?js^$/,
         use: {
-          loader: "babel-loader"
+          loader: "babel-loader",
         },
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css|.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 
-        'css-loader',
-        'sass-loader',
-        ],
-      }
-    ]
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.png/,
+        type: "asset/resource",
+      },
+      {
+        test: /\.(ttf)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 10000,
+            mimetype: "application/font-ttf",
+            name: "[name].[ext]",
+            outputPath: "./assets/fonts/",
+            publicPath: "./assets/fonts/",
+            esModule: false,
+          },
+        },
+      },
+    ],
   },
   plugins: [
-    new HtmlWebpackPlugin ({
+    new HtmlWebpackPlugin({
       inject: true,
-      template: './public/index.html',
-      filename: './index.html',
+      template: "./public/index.html",
+      filename: "./index.html",
     }),
-    new MiniCssExtractPlugin ({
-      filename: 'assets/styles/styles.css'
+    new MiniCssExtractPlugin({
+      filename: "assets/styles/styles.css",
     }),
-    new CopyPlugin ({
+    new CopyPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'src', 'assets'),
-          to: 'assets/images'
-        }
-      ]
+          from: path.resolve(__dirname, "src", "assets"),
+          to: "assets",
+        },
+      ],
     }),
     new CleanWebpackPlugin(),
   ],
-
-}
+};
