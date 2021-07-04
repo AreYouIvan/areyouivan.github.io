@@ -21,9 +21,6 @@
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
   },
-  "dependencies": {
-    "-": "^0.0.1"
-  },
   "name": "areyouivan",
   "version": "1.0.0",
   "main": "index.js",
