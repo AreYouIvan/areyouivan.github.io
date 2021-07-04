@@ -10,16 +10,10 @@ script:
   - yarn test
   - yarn run build
 
-git:
-  depth: 3
 deploy:
   provider: pages
-  edge: true
   skip_cleanup: true
-  keep_history: true
   github_token: $GITHUB_TOKEN
   local_dir: dist/
-  target_branch: gh-pages
-  commit_message: "Deploy Released"
   on:
     branch: master
