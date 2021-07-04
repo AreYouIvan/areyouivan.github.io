@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
-    assetModuleFilename: 'assets/images/[hash][ext][query]'
+    assetModuleFilename: "assets/images/[hash][ext][query]",
   },
   resolve: {
     extensions: [".js"],
@@ -36,12 +36,12 @@ module.exports = {
       },
       {
         test: /\.png/,
-        type: 'asset/resource'
+        type: "asset/resource",
       },
       {
         test: /\.(ttf)$/,
         use: {
-          loader: 'url-loader',
+          loader: "url-loader",
           options: {
             limit: 10000,
             mimetype: "application/font-ttf",
@@ -50,8 +50,8 @@ module.exports = {
             publicPath: "./assets/fonts/",
             esModule: false,
           },
-        }
-      } 
+        },
+      },
     ],
   },
   plugins: [
@@ -64,13 +64,5 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "assets/styles/styles.css",
     }),
-    // new CopyPlugin({
-    //   patterns: [
-    //     {
-    //       from: path.resolve(__dirname, "src", "assets/images"),
-    //       to: "assets/images",
-    //     },
-    //   ],
-    // }),
   ],
 };

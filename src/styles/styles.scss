@@ -1,8 +1,10 @@
 @font-face {
-  font-family: 'Fira Code';
-  font-family: 'Montserrat';
-  src: url(../assets/fonts/Montserrat-Medium.ttf) format('ttf'), url(../assets/fonts/FiraCode-Regular.ttf) format('ttf');
+  font-family: "Fira Code", "Montserrat";
+  src: url(../assets/fonts/Montserrat-Medium.ttf) format("ttf"),
+    url(../assets/fonts/FiraCode-Regular.ttf) format("ttf");
 }
+
+
 
 * {
   box-sizing: border-box;
@@ -14,6 +16,8 @@
   background-color: #000;
   width: 100%;
   height: 69px;
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
   img {
@@ -22,6 +26,7 @@
   .menu {
     min-width: auto;
     margin: 15px;
+    font-family: "Montserrat";
   }
 }
 .hamburger {
@@ -31,7 +36,7 @@
   height: 35px;
   cursor: pointer;
   margin: 0 auto;
-  
+
   appearance: none;
   background: none;
   outline: none;
@@ -41,7 +46,7 @@
 .hamburger .bar,
 .hamburger:after,
 .hamburger:before {
-  content: '';
+  content: "";
   display: block;
   width: 100%;
   height: 5px;
@@ -104,21 +109,26 @@ header {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  font-family: "Fira Code";
+  line-height: 28px;
+  letter-spacing: -0.1em;
 }
 section {
-display: inline-block;
-.profile-image {
-  margin: 0 auto;
-  width: 80%;
-  min-width: 200px;
-  max-width: 480px;
-  display: flex;
-  justify-content: center;
-  padding: 20px 50px 20px;
-  .picture { 
+  display: inline-block;
+  margin-top: 70px;
+  .profile-image {
+    margin: 0 auto;
+    width: 80%;
+    min-width: 200px;
+    max-width: 480px;
+    display: flex;
+    justify-content: center;
+    padding: 20px 50px 20px;
+    .picture {
       border-radius: 60%;
       width: 100%;
       height: auto;
+      border: 3px solid rgb(102, 102, 102);
       // max-width: 600px;
     }
   }
@@ -129,10 +139,10 @@ display: inline-block;
     font-size: 32px;
   }
   .description {
-    border: red solid 1px;
     width: 90%;
     margin: 10px auto;
-  } p {
+  }
+  p {
     text-align: center;
     font-size: 20px;
   }
@@ -143,16 +153,73 @@ main {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  .project {
-  } .projects {
-
+  font-family: Helvetica, sans-serif;
+  .project, .blog {
+    text-align: left;
+    padding: 20px;
+    width: 80%;
+    max-width: 900px;
+    height: 300px;
+    margin: 15px auto 10px;
+    border: 1px solid rgb(139, 139, 139);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .text {
+      color: white;
+      text-align: initial;
+      margin-top: 150px;
+      padding: 20px;
+      background-color: #000;
+      opacity: .6;
+      height: auto;
+      transition: opacity .7s;
+      &:hover {
+        opacity: 1;
+    } 
+    .hide { 
+      display: none;
+    }
+    }
+    .img-blog {
+      width: 100%;
+      height: auto;
+      min-height: 200px;
+      background-image: url("https://www.leisa-al.org/web/images/stories/noticias/2017/diciembre/arbol1.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
 }
 
 footer {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-around;
   text-align: center;
-}
+  background-color: #000;
+  width: 100%;
   
+  height: 200px;
+  font-size: 18px;
+  .social-media {
+    display: flex;
+    flex-direction: column;
+    a {
+      text-decoration: none;
+      color: #fff;
+      margin: 20px;
+    }
+  }
+  .contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      margin: 20px;
+    }
+  }
+}
